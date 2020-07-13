@@ -17,8 +17,8 @@ pipeline {
         }
 
         stage('TestLog') {
-          environment{
-            LocalVariable = "HelloLocal"
+          environment {
+            LocalVariable = 'HelloLocal'
           }
           steps {
             writeFile(file: 'LogTestFile.txt', text: "This is an automation file log ${ChromeDriverPath} and ${LocalVariable} ")
@@ -32,7 +32,7 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            input(message: 'Do you want to Deploy?', id: 'OK')
+            input(message: 'Do you want to Deploy non-master?', id: 'OK')
             echo 'Deploying the application'
           }
         }
